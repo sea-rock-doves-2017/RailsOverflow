@@ -1,13 +1,15 @@
-require 'rails-helper'
+require 'rails_helper'
 
 describe QuestionsController do
+  let!(:quizikal) { FactoryGirl.create(:question) }
 
   describe 'GET #index' do
     before(:each) do
       get :index
     end
-
-    it 'responds with status code 200'
+    it 'responds with status code 200' do
+      expect(response.status).to eq 200
+    end
     it 'assigns recent questions as @questions'
     it 'renders the :index template'
 
