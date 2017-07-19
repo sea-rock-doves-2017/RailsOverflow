@@ -16,7 +16,12 @@ describe QuestionsController do
     it 'renders the :index template' do
       expect(response).to render_template :index
     end
+  end
 
+  describe 'GET show' do
+    it 'responds with status code 200'
+    it 'assigns the correct question as @question'
+    it 'renders the :show template'
   end
 
 end
