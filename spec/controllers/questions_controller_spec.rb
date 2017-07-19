@@ -32,4 +32,10 @@ describe QuestionsController do
     end
   end
 
+  describe 'GET #new' do
+    it 'responds with status code 200'
+    it 'assigns a new question to @question'
+    it 'renders the :new template'
+  end
+
 end
