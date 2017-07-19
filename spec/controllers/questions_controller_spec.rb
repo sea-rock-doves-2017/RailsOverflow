@@ -19,27 +19,33 @@ describe QuestionsController do
   end
 
   describe 'GET show' do
-    it 'responds with status code 200' do
+    before(:each) do
       get :show, params: { id: quizikal.id }
+    end
+    it 'responds with status code 200' do
       expect(response.status).to eq 200
     end
     it 'assigns the correct question as @question' do
-      get :show, params: { id: quizikal.id }
       expect(assigns[:question]).to eq quizikal
     end
     it 'renders the :show template' do
-      get :show, params: { id: quizikal.id }
       expect(response).to render_template(:show)
     end
   end
 
   describe 'GET #new' do
-    it 'responds with status code 200' do
+    before(:each) do
       get :new
+    end
+    it 'responds with status code 200' do
       expect(response.status).to eq 200
     end
-    it 'assigns a new question to @question'
-    it 'renders the :new template'
+    it 'assigns a new question to @question' do
+      expect(assigns[:question]).to be_a_new Question
+    end
+    it 'renders the :new template' do
+      expect(response).to render_template(:new)
+    end
   end
 
 end
