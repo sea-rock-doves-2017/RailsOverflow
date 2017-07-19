@@ -56,6 +56,10 @@ describe QuestionsController do
       it 'responds with status code 302' do
         expect(response.status).to eq 302
       end
+      it 'creates a new question in the database'
+      it 'assigns the newly created question as @question'
+      it 'sets a notice that the question was successully created'
+      it 'redirects to the created question'
 
     end
   end
