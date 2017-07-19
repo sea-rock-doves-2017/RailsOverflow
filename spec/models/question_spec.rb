@@ -8,6 +8,7 @@ RSpec.describe Question, type: :model do
       expect(Question.all).to be_empty
     end
     it 'displays collection of all questions that have been created' do
+      quizikal.save
       expect(Question.all.length).to eq 1
     end
   end
