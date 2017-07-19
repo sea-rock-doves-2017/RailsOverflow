@@ -26,7 +26,10 @@ describe QuestionsController do
       get :show, params: { id: quizikal.id }
       expect(assigns[:question]).to eq quizikal
     end
-    it 'renders the :show template'
+    it 'renders the :show template' do
+      get :show, params: { id: quizikal.id }
+      expect(response).to render_template(:show)
+    end
   end
 
 end
