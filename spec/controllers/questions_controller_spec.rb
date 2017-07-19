@@ -22,7 +22,10 @@ describe QuestionsController do
     it 'responds with status code 200' do
       expect(response.status).to eq 200
     end
-    it 'assigns the correct question as @question'
+    it 'assigns the correct question as @question' do
+      get :show, params: { id: quizikal.id }
+      expect(assigns[:question]).to eq quizikal
+    end
     it 'renders the :show template'
   end
 
