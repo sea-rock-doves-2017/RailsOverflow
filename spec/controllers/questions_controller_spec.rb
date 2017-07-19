@@ -48,4 +48,16 @@ describe QuestionsController do
     end
   end
 
+  describe 'POST #create' do
+    context 'when valid params are passed' do
+      before(:each) do
+        post :create, params: { question: FactoryGirl.create(:question) }
+      end
+      it 'responds with status code 302' do
+        expect(response.status).to eq 302
+      end
+
+    end
+  end
+
 end
