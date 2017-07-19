@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe '.recent' do
+
+    it 'displays empty collections if no questions have been created'
+    it 'displays collection of recent questions that have been created'
+
+  end
+
 end
