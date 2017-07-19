@@ -20,6 +20,7 @@ describe QuestionsController do
 
   describe 'GET show' do
     it 'responds with status code 200' do
+      get :show, params: { id: quizikal.id }
       expect(response.status).to eq 200
     end
     it 'assigns the correct question as @question' do
@@ -33,7 +34,10 @@ describe QuestionsController do
   end
 
   describe 'GET #new' do
-    it 'responds with status code 200'
+    it 'responds with status code 200' do
+      get :new
+      expect(response.status).to eq 200
+    end
     it 'assigns a new question to @question'
     it 'renders the :new template'
   end
