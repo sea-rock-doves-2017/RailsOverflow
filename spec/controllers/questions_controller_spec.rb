@@ -13,7 +13,9 @@ describe QuestionsController do
     it 'assigns recent questions as @questions' do
       expect(assigns[:questions]).to eq(Question.all)
     end
-    it 'renders the :index template'
+    it 'renders the :index template' do
+      expect(response).to render_template :index
+    end
 
   end
 
