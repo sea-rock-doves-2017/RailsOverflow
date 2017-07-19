@@ -11,9 +11,8 @@
 
   <% @questions.each do |question| %>
     <tr>
-      <td>Title: <%= question.title %> </td>
-      <td>Question: <%= question.title %> </td>
-      <td>Author ID: <%= question.title %> </td>
+      <td> <%= question.title %> </td>
+      <td> <%= question.content %> </td>
       <td> <%= link_to 'Show', question_path(question) %> </td>
       <td> <%= link_to 'Edit', edit_question_path(question) %> </td>
       <td> <%= link_to 'Destroy', question_path(question), method: :delete, data: { confirm: "Are you sure you want to destroy #{question.title}" } %> </td>

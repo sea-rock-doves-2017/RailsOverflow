@@ -1,1 +1,13 @@
 <h1>Show Question</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @question.content %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %>
+<%= link_to 'Home', questions_path %>
