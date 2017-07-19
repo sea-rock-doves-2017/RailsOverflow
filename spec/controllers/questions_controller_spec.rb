@@ -10,7 +10,9 @@ describe QuestionsController do
     it 'responds with status code 200' do
       expect(response.status).to eq 200
     end
-    it 'assigns recent questions as @questions'
+    it 'assigns recent questions as @questions' do
+      expect(assigns[:question]).to eq(Question.all)
+    end
     it 'renders the :index template'
 
   end
