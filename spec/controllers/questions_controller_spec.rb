@@ -51,16 +51,23 @@ describe QuestionsController do
   describe 'POST #create' do
     context 'when valid params are passed' do
       before(:each) do
-        post :create, params: { question: { title: 'Hello', content: 'There', user_id: 2 } }
+        post :create, params: { question: { title: 'This is very very specific', content: 'There', user_id: 2 } }
       end
       it 'responds with status code 302' do
         expect(response.status).to eq 302
       end
-      it 'creates a new question in the database'
-      it 'assigns the newly created question as @question'
-      it 'sets a notice that the question was successully created'
-      it 'redirects to the created question'
-
+      it 'creates a new question in the database' do
+        expect(Question.last.title).to eq 'This is very very specific'
+      end
+      it 'assigns the newly created question as @question' do
+        expect(assigns[:question]).to eq Question.last
+      end
+      it 'sets a notice that the question was successully created' do
+        expect(flash[:notice]).to eq 'Question was successfully created.'
+      end
+      it 'redirects to the created question' do
+        expect(response).to render_template(@question)
+      end
     end
   end
 
