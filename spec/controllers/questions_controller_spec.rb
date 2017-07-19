@@ -19,7 +19,9 @@ describe QuestionsController do
   end
 
   describe 'GET show' do
-    it 'responds with status code 200'
+    it 'responds with status code 200' do
+      expect(response.status).to eq 200
+    end
     it 'assigns the correct question as @question'
     it 'renders the :show template'
   end

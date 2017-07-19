@@ -4,4 +4,7 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def show
+  end
+
 end
