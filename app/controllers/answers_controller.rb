@@ -2,6 +2,7 @@ class AnswersController < ApplicationController
 
   def new
     @answer = Answer.new
+    @question = Question.find(params[:id])
   end
 
   def edit
@@ -10,6 +11,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    @question_id = params[:id]
     if @answer.save
       redirect_to @answer, notice: 'Answer was successfully created.'
     else
@@ -33,10 +35,11 @@ class AnswersController < ApplicationController
     redirect_to answers_path
   end
 
+# TEST TO SEE IF @question_id IS READ
   private
   def answer_params
     p params
-    params.require(:answer).permit(:content, :question_id, :user_id)
+    params.require(:answer).permit(:content, @question_id, :user_id)
   end
 
 end
